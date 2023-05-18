@@ -7,22 +7,17 @@ Date: 2023/05/01
 
 // dependencies
 const http = require('http');
-
 const { handleReqRes } = require('./helpers/handleReqRes');
+const environment = require('./helpers/environments');
 
 // module scaffolding
 const app = {};
 
-// configuration
-app.config = {
-  port: 9000,
-};
-
 // create server
 app.createServer = () => {
   const server = http.createServer(app.handleReqRes);
-  server.listen(app.config.port, () => {
-    console.log(`API listening on port ${app.config.port}`);
+  server.listen(environment.port, () => {
+    console.log(`API listening on port ${environment.port}`);
   });
 };
 
